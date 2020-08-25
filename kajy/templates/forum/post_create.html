@@ -1,0 +1,10 @@
+{% extends 'forum/base.html' %}
+{% block content %}
+<div class="form-mod">
+<form method='post'>
+	{% csrf_token %}
+	{{form}}
+	<input type = 'submit' value = 'Crée'>
+</form>
+</div>
+{% endblock %}

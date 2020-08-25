@@ -1,0 +1,20 @@
+{% extends 'forum/base.html'%}
+{% block page %}
+<div class="connexion">
+	<div class="form-mod">
+		<div class="form-head">
+			Connexion
+		</div>
+		<form method="post" class="connexion_form">
+			{% csrf_token %}
+			{{ form}}
+			<input type="submit" value="Connexion">
+		</form>
+		<div class="form-link">
+			<p>Vous n' avez pas de compte? <a href = "{% url 'users_app:inscription' %}">
+					Crée un compte ici!</a></p>
+			<p> Retrouver votre compte <a href='#'>Ici</a></p>
+		</div>
+	</div>
+</div>
+{%endblock%}

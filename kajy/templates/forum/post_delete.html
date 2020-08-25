@@ -1,0 +1,14 @@
+{% extends 'forum/base.html'%}
+{% block content %}
+<div>
+	Etes-vous sur de suprimer :</br>
+	{% if post.titre %}<h3>{{ post.titre}}</h3>{% endif %}
+	{{ post.contenu|truncatewords:5}}</br>
+	</p>
+	<form method  = "post">
+		{% csrf_token %}
+		<input class="btn btn-danger btn-sm" type ="submit" value ='Suprimer'>
+		<a class="btn btn-primary btn-link btn-sm text-white" href ="{% url 'forum_app:read_post' post.pk %}">Annuler</a>
+	</form>
+</div>	
+{% endblock %}

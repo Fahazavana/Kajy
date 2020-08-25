@@ -1,0 +1,63 @@
+{% extends 'forum/base.html'%}
+{% block content %}
+<div class="card mr-auto ml-auto mb-1 mt-1">
+	<div class="card-header p-0 color-cyan">
+		<span  class="card-title mb-0 ml-1 ml-md-3 float-left">{% if post.titre %}{{ post.titre}} : {% endif %}{{ post.dateDePublication}}</span>
+		<a class="card-title text-white mb-0 p-0 mr-1 mr-md-3 float-right" href = "{% url 'users_app:profile' post.auteur.pk %}">{{ post.auteur.username}}</a>
+	</div>
+	<div class="card-body p-0 p-sm-2 pl-1 pr-1">
+		{% if post.titre %}<h4>{{ post.titre}}</h4>{% endif %}
+		{{ post.contenu }}
+	</div>
+	<div class="card-footer p-0">
+		<span class="mb-0 ml-1 ml-md-3 p-0">
+			{% if user.is_authenticated %}
+			<a href="{% url 'forum_app:voter' post.pk %}" class="text-primary">Vote {{post.vote_set.all.count}}</a>
+			{% else %}
+			Vote {{post.vote_set.all.count}}
+			{% endif %}
+			Réponses {{post.commentaire_set.all.count}}</span>
+		<span class="float-right">
+			{% if user == post.auteur %}
+			<span class="btn-group mb-0 p-0 mr-1 mr-md-3">
+				<a class="text-primary mr-2" href = "{% url 'forum_app:update_post' post.pk %}">Modifier</a>
+				<a class="text-danger" href = "{% url 'forum_app:delete_post' post.pk %}">Suprimer</a>
+				{% endif %}
+			</span>
+		</span>
+
+	</div>
+</div>
+{% if post.commentaire_set.all %}
+{% for comment in post.commentaire_set.all %}
+<div class="card mr-auto ml-auto mb-1 mt-3">
+	<div class="card-header p-0">
+		<a class="float-left ml-1 text-primary" href = "{% url 'users_app:profile' comment.auteur.pk %}">{{comment.auteur}}</a>
+		<span class="float-right mr-1">
+			{{ comment.datecoms }}
+		</span>
+	</div>
+	<div class="card-body p-1">
+		{{ comment.contenu }}
+	</div>
+</div>
+{% endfor %}
+{% else %}
+<div class="card card-info  text-center m-sm-2 mb-1 mt-1">
+	Pas de reponse
+</div>
+{% endif %}
+{% if user.is_authenticated %}
+<div class="col-12 mb-1 mt-2 p-0">
+	<form  class="action = "{% url 'forum_app:add_comment_post' post.id%}" method  = "post">
+		{% csrf_token %}
+		<textarea class="form-control mb-2" id="commenter" name ='commentaire'></textarea>
+		<input class="btn btn-secondary btn-sm form-control" type ="submit" value ='commenter'>
+	</form>	
+</div>
+{% else %}
+<div class="card card-info  text-center m-sm-2 mb-1 mt-1">
+	Connecter-vous pour répondre
+</div>
+{% endif %}
+{% endblock %}

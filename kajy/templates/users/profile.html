@@ -1,0 +1,40 @@
+{% extends 'forum/base.html' %}
+{% block content %}
+<div class="profile">
+	<div class="profile-avatar">
+	<img class="account-avatar ombre"  src="{{ object.avatar.url }}">
+	{% if user.id == object.id %}
+	<a href="{% url 'users_app:avatar' user.pk %}" class="change-avatar">Changer Avatar</a>
+	{% endif %}
+	</div>
+	<div class="info-container">
+		<div class="info">
+			<div class="info-header color-cyan">
+			Information relatif aux compte
+			{% if user.id == object.id %}
+			<a href="{% url 'users_app:user' user.pk %}" class="change-info">Modifier</a>
+			{% endif %}
+			</div>
+			<div class="info-body">
+			<span class="info-item">Nom d' utilisateur : {{object.user.username}}</span>
+			<span class="info-item">Nom  :  {{ object.user.first_name }}</span>
+			<span class="info-item">Prenom  :  {{ object.user.last_name}}</span>
+			<span class="info-item">E-mail : {{object.user.email}}</span>
+		</div>
+		</div>
+		<div class="info">
+			<div class="info-header color-cyan">
+			Information Personnelle
+			{% if user.id == object.id %}
+			<a href="{% url 'users_app:personal' user.pk %}" class="change-info">Modifier</a>
+			{% endif %}
+			</div>
+			<div class="info-body">
+			<span class="info-item">Date de naissance : {{ object.dateNaissance}}</span>
+			<span class="info-item">Adresse : {{ object.adresse}}</span>
+			<span class="info-item">Proffession : {{object.profession}}</span>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

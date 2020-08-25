@@ -1,0 +1,214 @@
+body
+{
+  margin:0;
+  padding:0;
+}
+*{
+  box-sizing:border-box;
+}
+
+.messages{
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+/*  formulaire django  ,oded css*/
+input[type="submit"]{
+	width:100%;
+	width:100%;
+	display:block;
+	padding:.375rem .75rem;
+	font-size: 1rem;
+	margin-top: .5rem;
+	margin-bottom:.5rem auto;
+	border-radius: .25rem;
+
+}
+.form-mod input[type="text"],
+.form-mod input[type="password"],
+.form-mod input[type="email"],
+.form-mod  textarea{
+	width:100%;
+	display:block;
+	padding:.375rem .75rem;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #495057;
+	background-color: #fff;
+	background-clip: padding-box;
+	border: 1px solid #ced4da;
+	border-radius: .25rem;
+	transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+.form-mod ul {
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+.form-head{
+	background-color:#00BCD4;
+	color:white;
+	text-align:center;
+	font-size:1.5rem;
+	padding:0.25em 0;
+	margin-bottom:0.25em;
+}
+.form-link p{
+	text-align:center;
+	margin:0;
+	}
+.helptext{
+	color:gray;
+	display:block;
+}
+.form-mod ul li{
+	color: gray;
+}
+.form-mod ul[class*="errorlist"] li{
+	color:red;
+}
+.form-mod label{
+	display:inline-block;
+	margin-bottom:.5rem;
+}
+
+/* CONNEXION ET INSCRIPTION*/
+.connexion,
+.inscription{
+	display:flex;
+	justify-content:center;
+}
+.connexion .form-mod,
+.inscription .form-mod{
+	flex-basis:100%;
+}
+.connexion_form,
+.inscription_form{
+	padding-left:2rem;
+	padding-right:2rem;
+}
+.connexion input[type='submit']{
+	margin-top:0.5rem;
+	margin-bottom:0.25rem;
+}
+
+@media only screen and (min-width:577px){
+	.connexion,
+	.inscription{
+		height:100vh;
+		align-items:center;
+		align-content:center;
+	}
+	.connexion .form-mod{
+		padding:3%;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		max-width:50vw;
+	}
+	.inscription .form-mod{
+		padding:3%;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		max-width:95vw;
+	}
+}
+
+
+.color-cyan{
+	background-color:#00BCD4 ;
+	color:white;
+}
+
+.color-purple{
+	background-color:purple;
+}
+.ombre{
+	padding:3%;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	}
+.nav-link, .navbar-brand {
+	color:white;
+}
+.navbar-brand{
+	padding:8px;
+	margin:0;
+}
+.nav-link:hover{
+	background-color:gray;
+	color:white;
+}
+.navbar-brand:hover{
+	color:white;
+}
+.appercu{
+	color:black;
+}
+.appercu:hover{
+	color:bluegray;
+	text-decoration:none;
+}
+
+/* Sur le profile*/
+.profile{
+	display:flex;
+	align-content:center;
+	margin:0;
+}
+.profile-avatar{
+		margin:1rem;
+;
+}
+.account-avatar{
+	width:10rem;
+	height:10rem;
+	border-radius:50%;
+	display:block;
+	margin:auto;
+}
+.change-info{
+	font-size:1rem;
+	margin-right:auto;
+	position:absolute;
+	right:24px;
+	color:white;
+	text-decoration:none;
+	
+}
+.change-avatar{
+	text-align:center;
+	display:block;
+	text-decoration:none;
+}
+.change-avatar:hover, .change-info:hover{
+	text-decoration:none;
+}
+.info-container{
+	margin:0;
+	flex-grow:2;
+}
+.info{
+	border:gray 1px solid;
+	margin-top:1rem;
+}
+.info-item{
+	display:block;
+	padding:0 1rem;
+}
+.info-item:nth-of-type(even){
+	background-color:lightGray;
+}
+
+.info-header{
+	padding-left:1rem;
+}
+@media only screen and (max-width:578px){
+	.profile{
+		flex-direction:column;
+		align-items:center;
+	}
+	.info-container{
+		width:100%;
+	}
+	.profile-avatar{
+		width:100%;
+	}
+}
