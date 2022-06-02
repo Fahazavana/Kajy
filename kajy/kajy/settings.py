@@ -129,3 +129,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 LOGIN_REDIRECT_URL = 'forum_app:home'
 LOGIN_URL = 'users_app:connexion'
+
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
